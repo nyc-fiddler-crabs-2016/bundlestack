@@ -20,6 +20,7 @@ class AnswersController < ApplicationController
     @question = @answer.question
   end
 
+
   def update
     @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
