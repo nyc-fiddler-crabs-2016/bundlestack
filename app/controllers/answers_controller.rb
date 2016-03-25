@@ -1,21 +1,45 @@
 class AnswersController < ApplicationController
+
   def new
     @answer = Answer.new
+    @question = Question.find(params[:question_id])
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = current_user.answers.new(answer_params)
+    @answer.question = Question.find(params[:question_id])
     if @answer.save
-      flash[:notice] = ["Your answer has been posted"]
-      redirect_to question_path
+      redirect_to question_path(@answer.question)
     else
-      flash[:notice] = ["There was a problem posting answer"]
+      render :new
     end
+  end
+
+  def edit
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
+  end
+
+  def update
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      redirect_to question_path(@answer.question)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    answer = Answer.find(params[:id])
+    question = answer.question
+    answer.delete
+
+    redirect_to question_path(question)
   end
 
   private
 
-    def answer_params
-      params.require(:answer).permit(:content).merge(user_id: current_user.id)
-    end
+  def answer_params
+    params.require(:answer).permit(:content, :question_id)
+  end
 end
