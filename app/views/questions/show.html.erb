@@ -1,5 +1,6 @@
-<% @question.title %>
-<% @question.content %>
-<% if @question.comments.any? %>
-  <% render @question.comments %>
+<%= @question.title %>
+<%= @question.content %>
+<!-- if @question.comments.any? -->
+   <!-- render @question.comments -->
+<!-- end  -->
 <% render @question.answers %>
