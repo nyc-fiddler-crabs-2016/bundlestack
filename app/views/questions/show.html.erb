@@ -1,0 +1,5 @@
+<% @question.title %>
+<% @question.content %>
+<% if @question.comments.any? %>
+  <% render @question.comments %>
+<% render @question.answers %>
