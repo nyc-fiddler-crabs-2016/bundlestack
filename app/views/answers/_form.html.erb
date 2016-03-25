@@ -1,0 +1,7 @@
+
+<%= form_for(answer) do |f| %>
+  <%= f.hidden_field :question_id, value: question.id %>
+
+  <%= f.text_area :content,  :placeholder => "add content here"%>
+  <%= f.submit %>
+<% end %>

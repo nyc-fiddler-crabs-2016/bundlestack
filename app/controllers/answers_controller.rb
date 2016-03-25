@@ -4,10 +4,11 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @question = Question.find(params[:answer][:question_id])
+    @answer = Answer.new(answer_params.merge(question_id: @question.id))
     if @answer.save
-      flash[:notice] = ["Your answer has been posted"]
-      redirect_to question_path
+      flash[:notice] = "Your answer has been posted"
+      redirect_to controller: 'questions', action: 'show', id: @question.id
     else
       flash[:notice] = ["There was a problem posting answer"]
     end
@@ -16,6 +17,6 @@ class AnswersController < ApplicationController
   private
 
     def answer_params
-      params.require(:answer).permit(:content).merge(user_id: current_user.id)
+      params.require(:answer).permit(:content, :question_id).merge(user_id: current_user.id)
     end
 end
