@@ -4,7 +4,13 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new
+    @answer = Answer.new(answer_params)
+    if @answer.save
+      flash[:notice] = ["Your answer has been posted"]
+      redirect_to question_path
+    else
+      flash[:notice] = ["There was a problem posting answer"]
+    end
   end
 
   private
