@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% if session[:user_id].present? %>
+      <%= link_to 'logout', session_path(session[:user_id]), method: :delete%>
+      <%= link_to 'profile', user_path(session[:user_id]) %>
+    <% else %>
+      <%= link_to 'login', new_session_path %>
+      <%= link_to 'signup', new_user_path %>
+    <% end %>
+  </header>
 
 <%= yield %>
 
