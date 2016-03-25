@@ -1,4 +1,7 @@
 class Question < ActiveRecord::Base
+
+  include Valueable
+
   validates :title, presence: true
   validates :content, presence: true
 

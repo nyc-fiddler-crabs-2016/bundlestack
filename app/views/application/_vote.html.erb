@@ -1,0 +1,7 @@
+<div class="votes-partial">
+  <p><%= link_to "UP", up_vote_path(object) %></p>
+  <% if object.votes.any? %>
+    <p><%= object.vote.value %></p>
+  <% end %>
+  <p><%= link_to "DOWN", down_vote_path(object) %></p>
+</div>
