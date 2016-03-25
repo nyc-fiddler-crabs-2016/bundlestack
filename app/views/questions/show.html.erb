@@ -1,6 +1,15 @@
-<%= @question.title %>
-<%= @question.content %>
+
+<h2>question</h2>
+<li><%= @question.title %></li>
+<li><%= @question.content %></li>
+<br>
 <!-- if @question.comments.any? -->
    <!-- render @question.comments -->
 <!-- end  -->
-<% render @question.answers %>
+
+<%= render partial: "answers/form", locals: {answer: @answer, question: @question} %>
+<h2>answers</h2>
+<% @question.answers.each do |answer| %>
+<li><%= answer.content%></li>
+<% end %>
+
