@@ -13,6 +13,4 @@ class Vote < ActiveRecord::Base
     val = self.value
     self.update_attributes(value: val - 1)
   end
-
-  end
 end

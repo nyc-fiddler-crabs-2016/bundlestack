@@ -4,6 +4,6 @@ module Valueable
   end
 
   def total_votes
-    Vote.where(votable_id: 1, votable_type: self.class).pluck(:value).reduce(:+)
+    Vote.where(votable_id: self.id, votable_type: self.class).pluck(:value).reduce(:+)
   end
 end
