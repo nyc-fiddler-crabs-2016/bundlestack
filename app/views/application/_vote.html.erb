@@ -1,7 +1,8 @@
 <div class="votes-partial">
-  <p><%= link_to "UP", up_vote_path(votable_id: object.id, votable_type: object.class) %></p>
-  <% if object.votes.any? %>
-    <p><%= object.total_votes%></p>
-  <% end %>
-  <p><%= link_to "DOWN", down_vote_path(votable_id: object.id, votable_type: object.class) %></p>
+  <p>
+    <%= link_to "UP", up_vote_path(votable_id: object.id, votable_type: object.class) %>
+    <% if object.votes.any? %>
+      | <%= object.total_votes%>
+    <% end %>
+    | <%= link_to "DOWN", down_vote_path(votable_id: object.id, votable_type: object.class) %></p>
 </div>
