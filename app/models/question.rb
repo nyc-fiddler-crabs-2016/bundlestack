@@ -1,4 +1,7 @@
 class Question < ActiveRecord::Base
+
+  include Valueable
+
   validates :title, presence: true
   validates :content, presence: true
 
@@ -15,7 +18,5 @@ class Question < ActiveRecord::Base
   def answer_count
     self.answers.count
   end
-
 end
 
-# this is a check

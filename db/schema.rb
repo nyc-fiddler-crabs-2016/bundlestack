@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 20160325152943) do
     t.integer  "user_id"
     t.integer  "votable_id"
     t.string   "votable_type"
-    t.integer  "value"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "value",        default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
