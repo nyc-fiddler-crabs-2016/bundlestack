@@ -3,17 +3,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
-
   resources :questions
   resources :answers, except: [:index, :show]
   resources :comments, except: [:index]
 
-  resources :votes, only: [:create, :destroy] do
-    member do
-      get 'up'
-      get 'down'
-    end
-  end
+  get 'votes/up/:votable_id/:votable_type' =>'votes#up', as:'up_vote'
+  get 'votes/down/:votable_id/:votable_type' => 'votes#down', as: 'down_vote'
 end
 
 
