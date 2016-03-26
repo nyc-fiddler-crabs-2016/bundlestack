@@ -2,21 +2,27 @@
 <html>
 <head>
   <title>Bundlestack</title>
+  <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
   <header>
+    <h1>bundlestack</h1>
+    <nav>
     <% if current_user %>
-      <%= link_to 'Logout', session_path(session[:user_id]), method: :delete%>
-      <%= link_to 'profile', user_path(session[:user_id]) %>
+      <li><%= link_to 'Logout', session_path(session[:user_id]), method: :delete%></li>
+      <li><%= link_to 'profile', user_path(session[:user_id]) %></li>
     <% else %>
-      <%= link_to 'Login', new_session_path %>
-      <%= link_to 'Register', new_user_path %>
+      <li><%= link_to 'Login', new_session_path %></li>
+      <li><%= link_to 'Register', new_user_path %></li>
     <% end %>
+  </nav>
   </header>
 
+<main>
   <div id="flash-messages-container">
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>">
@@ -24,8 +30,8 @@
       </div>
     <% end %>
   </div>
-
-<%= yield %>
-
+  <%= yield %>
+</main>
+</div>
 </body>
 </html>
