@@ -1,0 +1,7 @@
+<% binding.pry %>
+<%= form_for @comment do |f|%>
+  <%= f.text_field :content %>
+  <%= f.hidden_field :commentable_type => @object_array[1] %>
+  <%= f.hidden_field :commentable_id => @object_array[0] %>
+  <%= f.submit%>
+<% end %>

@@ -8,12 +8,8 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
-  def show
-    @question = Question.find(params[:id])
-    @answer = Answer.new
-  end
-
   def create
+
     @question = Question.new(question_params)
     if @question.save
       flash[:success] = "question created successfully"
@@ -21,6 +17,11 @@ class QuestionsController < ApplicationController
     else
       render 'questions/new'
     end
+  end
+
+  def show
+    @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
   private
