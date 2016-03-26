@@ -1,0 +1,13 @@
+<div class="votes-partial">
+  <h5>
+    <%= link_to "UP", up_vote_path(votable_id: object.id, votable_type: object.class), method: :post,{class: "vote-link", id: build_custom_id(object, "up")} %>
+    <% if object.votes.any? %>
+      | <%= object.total_votes%>
+    <% end %>
+    | <%= link_to "DOWN", down_vote_path(votable_id: object.id, votable_type: object.class), {class: "vote-link",id: build_custom_id(object, "down")} %></h5>
+</div>
+
+<%= form_for @vote do |f| %>
+<%= f.text_field :votable_id %>
+  <%= f.submit "THis is a vote button" %>
+<% end %>

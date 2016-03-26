@@ -1,0 +1,2 @@
+_answer.html.erb line 4 if question_answer_path doesnt work - ahrdcode the long way - "/questions/#{answer.question.id}/answers/#{answer.id}"
+

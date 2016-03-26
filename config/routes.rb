@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
+
   root 'questions#index'
 
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :questions
-  resources :answers, except: [:index, :show]
-  resources :comments, except: [:index]
 
-  get 'votes/up/:votable_id/:votable_type' =>'votes#up', as:'up_vote'
+  get 'questions/recent'=> 'questions#recent', as: 'recent_questions'
+
+  resources :questions do
+    resources :answers, except: [:index, :show]
+    resources :comments, except: [:show,:index]
+  end
+
+
+  resources :answers, except: [:index, :show] do
+    resources :comments
+  end
+
+  get 'votes/up/:votable_id/:votable_type' => 'votes#up', as:'up_vote'
   get 'votes/down/:votable_id/:votable_type' => 'votes#down', as: 'down_vote'
 end
 

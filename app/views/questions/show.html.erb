@@ -1,18 +1,22 @@
 <h2>question</h2>
 <li><%= @question.title %></li>
 <li><%= @question.content %></li>
-<br>
+
+<div class="add-comment-link">
+  <%= link_to 'Add Comment', new_question_comment_path(@question) %>
+</div>
+
+<% if @question.comments.any? %>
+  <div class="comments">
+    Comments:
+    <%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
+  </div>
+<% end %>
 
 <%= render partial: "answers/form", locals: {answer: @answer, question: @question} %>
-<h2>answers</h2>
-  <% @question.answers.each do |answer| %>
-    <li><%= answer.content%></li>
-    <li><%= link_to "add comment", :controller => "comments", action: "new", query: "#{answer.id} answer" %></li>
-    <br>
-      <% if @question.comments.any? %>
-        <% @comments = answer.comments.each do |comment|  %>
-          <%= render 'comments/comment', :locals => {:comment => comment} %>
-        <% end %>
-      <% end %>
-    <% end %>
+
+<section id="answers">
+  Answers:
+  <%= render @answers %>
+</section>
 

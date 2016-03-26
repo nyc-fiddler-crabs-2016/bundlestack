@@ -1,0 +1,11 @@
+header {
+  border: 1px solid black;
+}
+
+header li {
+  display: inline-block;
+}
+
+ .comments-list, .comment{
+  border-bottom: 1px gray ridge;
+ }

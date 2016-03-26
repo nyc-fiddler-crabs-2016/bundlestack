@@ -1,2 +1,9 @@
-<%= comment.content %>
-<%= comment.user.username %>
+<div class= "comments-list">
+    <%comments.each do |comment|%>
+      <p class="comment">
+        <%= comment.content %>
+        <br>
+        by <%= comment.user.username %>
+     </p>
+    <%end%>
+  </div>

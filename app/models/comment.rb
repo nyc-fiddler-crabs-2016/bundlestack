@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 
-include Valuable
+include Valueable
 
 belongs_to :user
 belongs_to :commentable, polymorphic: true

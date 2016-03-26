@@ -8,20 +8,22 @@
 </head>
 <body>
   <header>
-    <% if session[:user_id].present? %>
-      <%= link_to 'logout', session_path(session[:user_id]), method: :delete%>
+    <% if current_user %>
+      <%= link_to 'Logout', session_path(session[:user_id]), method: :delete%>
       <%= link_to 'profile', user_path(session[:user_id]) %>
     <% else %>
-      <%= link_to 'login', new_session_path %>
-      <%= link_to 'signup', new_user_path %>
+      <%= link_to 'Login', new_session_path %>
+      <%= link_to 'Register', new_user_path %>
     <% end %>
   </header>
 
-  <% flash.each do |message_type, message| %>
+  <div id="flash-messages-container">
+    <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>">
         <%= message %>
       </div>
     <% end %>
+  </div>
 
 <%= yield %>
 

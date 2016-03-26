@@ -1,12 +1,10 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
-  $("#question-list").on("click", ,function(){
+//   $("#question-list").on("click",".vote-link" ,function(){
 
 
-  }).done(function(response){
-
-  });
+//   }).done(function(response){ });
 
 
 
-})
+// });
