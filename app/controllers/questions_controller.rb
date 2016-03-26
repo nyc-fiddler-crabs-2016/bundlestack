@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
+    @vote = Vote.new
     @questions = Question.all
   end
 

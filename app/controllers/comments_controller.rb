@@ -8,7 +8,8 @@ class CommentsController < ActionController::Base
     resource = if params[:question_id]
       Question.find(params[:question_id])
     else
-      Answer.find(params[:answer_id])
+     exit
+     find(params[:answer_id])
     end
 
     comment = resource.comments.build(comment_params.merge(user: current_user))

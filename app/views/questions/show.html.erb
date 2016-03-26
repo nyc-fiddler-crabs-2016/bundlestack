@@ -13,7 +13,7 @@
   </div>
 <% end %>
 
-<%= render "answers/form" %>
+<%= render partial: "answers/form", locals: {answer: @answer, question: @question} %>
 
 <section id="answers">
   Answers:
