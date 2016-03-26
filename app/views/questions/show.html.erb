@@ -1,6 +1,7 @@
 <h2>question</h2>
 <li><%= @question.title %></li>
 <li><%= @question.content %></li>
+<%= render partial: 'vote', locals: {object: @question} %>
 
 <div class="add-comment-link">
   <%= link_to 'Add Comment', new_question_comment_path(@question) %>

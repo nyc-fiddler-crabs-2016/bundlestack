@@ -1,8 +1,9 @@
   <div>
     <%= answer.content %>
     <% if current_user == answer.user %>
-    <%= link_to 'delete',  question_answer_path, method: :delete %>
+      <%= link_to 'delete',  question_answer_path, method: :delete %>
     <% end %>
+    <%= render partial: 'vote', locals: {object: answer} %>
   </div>
 
   <div>

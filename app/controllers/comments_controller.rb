@@ -8,7 +8,6 @@ class CommentsController < ActionController::Base
     resource = if params[:question_id]
       Question.find(params[:question_id])
     else
-     exit
      find(params[:answer_id])
     end
 
