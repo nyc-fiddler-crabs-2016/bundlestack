@@ -1,15 +1,18 @@
-
 <h2>question</h2>
 <li><%= @question.title %></li>
 <li><%= @question.content %></li>
 <br>
-<!-- if @question.comments.any? -->
-   <!-- render @question.comments -->
-<!-- end  -->
 
 <%= render partial: "answers/form", locals: {answer: @answer, question: @question} %>
 <h2>answers</h2>
-<% @question.answers.each do |answer| %>
-<li><%= answer.content%></li>
-<% end %>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.content%></li>
+    <li><%= link_to "add comment", :controller => "comments", action: "new", query: "#{answer.id} answer" %></li>
+    <br>
+      <% if @question.comments.any? %>
+        <% @comments = answer.comments.each do |comment|  %>
+          <%= render 'comments/comment', :locals => {:comment => comment} %>
+        <% end %>
+      <% end %>
+    <% end %>
 

@@ -1,6 +1,8 @@
 <div>
   <%= render partial: 'vote', locals: {object: question} %>
-  <%= question.answer_count %>
-  <h3><%= link_to question.title, question_path(question) %></h3>
-  <%= question.author %>
+<h3><%= link_to question.title, question_path(question) %></h3>
+<%= question.answer_count %>
+<%= question.author %>
+<br>
+
 </div>
