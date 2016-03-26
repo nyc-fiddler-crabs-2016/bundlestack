@@ -1,8 +1,2 @@
-<%= form_for [@question, @answer] do |f| %>
+<%= render 'form' %>
 
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-
-  <%= f.submit %>
-
-<% end %>

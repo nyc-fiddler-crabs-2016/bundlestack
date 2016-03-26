@@ -1,27 +1,34 @@
 class CommentsController < ActionController::Base
 
   def new
-    binding.pry
-    @object_array = params[:query].upcase.split(" ")
-    @object_array[1].capitalize!
     @comment = Comment.new
   end
 
   def create
-    binding.pry
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      flash[:success] = "comment created successfully"
-      redirect_to question_path(@comment, @question)
+    resource = if params[:question_id]
+      Question.find(params[:question_id])
     else
-      render 'comments/new'
+      Answer.find(params[:answer_id])
+    end
+
+    comment = resource.comments.build(comment_params.merge(user: current_user))
+
+    if comment.save
+      flash[:success] = "Comment is created."
+      redirect_to redirect_url_after_create resource
+    else
+      flash[:error] = "Comment can't be created."
+      redirect_to redirect_url_after_create resource
     end
   end
-
   private
 
     def comment_params
       params.require(:comment).permit(:content)
     end
+
+    def redirect_url_after_create(resource)
+    resource.is_a?(Answer) ? question_path(resource.question) : resource
+  end
 
 end

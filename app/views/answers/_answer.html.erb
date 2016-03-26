@@ -1,0 +1,19 @@
+  <div>
+    <%= answer.content %>
+    <% if current_user == answer.user %>
+    <%= link_to 'delete',  question_answer_path, method: :delete %>
+    <% end %>
+  </div>
+
+  <div>
+    by <%= answer.user.username %>
+  <div>
+
+  <div>
+    <%= render partial: 'comments/form', locals: {resource: answer, comment: Comment.new} %>
+  </div>
+
+
+  <div>
+    <%=render partial: "comments/comment", locals: {comments: answer.comments}%>
+  </div>

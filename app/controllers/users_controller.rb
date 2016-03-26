@@ -7,9 +7,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "Welcome #{@user.username}"
       session[:user_id] = @user.id
-      redirect_to questions_path #look at me !
+      redirect_to :root
     else
+       flash[:error] = "something went wrong"
       render 'new'
     end
   end

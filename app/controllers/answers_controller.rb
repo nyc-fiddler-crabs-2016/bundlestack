@@ -7,36 +7,44 @@ class AnswersController < ApplicationController
 
   def create
     @answer = current_user.answers.new(answer_params)
-    # @answer.question = Question.find(params[:question_id])
+    @question = Question.find(params[:question_id])
     if @answer.save
-      redirect_to question_path(@answer.question)
+      flash[:success] = "Your answer has been posted"
+      redirect_to question_path(@question)
     else
+      flash[:now] = "There was a problem"
       render :new
     end
   end
 
-  # def edit
-  #   @answer = Answer.find(params[:id])
-  #   @question = @answer.question
-  # end
+  def edit
+    @answer = Answer.find(params[:id])
+    authorize_access(@answer)
+    @question = @answer.question #why do we need this line???
+  end
 
 
-  # def update
-  #   @answer = Answer.find(params[:id])
-  #   if @answer.update(answer_params)
-  #     redirect_to question_path(@answer.question)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    @answer = Answer.find(params[:id])
+    authorize_access(@answer)
+    if @answer.update(answer_params)
+      flash[:success] = "Your answer has been updated"
+      redirect_to question_path(@answer.question)
+    else
+      flash[:now] = "There was a problem"
+      render :edit
+    end
+  end
 
-  # def destroy
-  #   answer = Answer.find(params[:id])
-  #   question = answer.question
-  #   answer.delete
+  def destroy
+    answer = Answer.find(params[:id])
+    authorize_access(answer)
+    question = answer.question
+    answer.destroy
+    flash[:success] = "Your answer has been removed."
 
-  #   redirect_to question_path(question)
-  # end
+    redirect_to question_path(question)
+  end
 
   private
 
