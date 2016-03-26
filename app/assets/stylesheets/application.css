@@ -1,3 +1,77 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  height: 100px;
+  background: url("/assets/owl-100.png") no-repeat;
+}
+
+header h1 {
+  margin-left: 120px;
+  color: #593501
+}
+
+nav {
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+a:link {
+  color: #6bc2ef;
+}
+a:visited {
+ color: #63ba47;
+}
+a:hover, a:active {
+  color: #ffcc00;
+}
+
+main {
+}
+
+.question-area {
+  border-bottom: 1px solid #ccc;
+}
+
+.question h3 {
+  display: block;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+.votes-partial {
+  float: left;
+  width: 25%;
+  padding-top: 25px;
+}
+.question-author {
+  float: right;
+}
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,6 +84,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */
