@@ -2,6 +2,13 @@
     <%comments.each do |comment|%>
       <div class="comment">
         <li><%= comment.content %></li>
+        <% if owned?(comment)%>
+			<% if comment.commentable_type == "answer" %>
+		      this is a <%= comment.commentable_type %> comment.
+		    <% else %>
+		    	this is a <%= comment.commentable_type %> comment.
+			<% end %>
+        <% end %>
         <li><%= render partial: 'vote', locals: {object: comment} %></li>
         <li>by <%= link_to comment.user.username, user_path(comment.user) %></li>
      </div>
