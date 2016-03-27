@@ -1,6 +1,7 @@
-<div class="question">
-  <li><%= render partial: 'vote', locals: {object: question} %></li>
-  <li><%= link_to question.title, question_path(question) %></li>
-  <li><span class="answer-count"><%= question.answer_count %></span></li>
-  <li><span class="question-author"><%= link_to question.author, user_path(question.author) %></span></li>
+<div class = "question">
+  <h3 class="question-title"><%= link_to question.title, question_path(question) %></h3>
+  <span class="vote-count"><%= render partial: 'vote', locals: {object: question} %></span>
+  <span class="answer-count"><%= question.answer_count %> answers</span>
+  <span class="question-author"><%= link_to question.author, user_path(question.user.id) %></span>
 </div>
+

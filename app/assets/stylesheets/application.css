@@ -23,10 +23,14 @@ a {
 header {
   height: 100px;
   background: url("/assets/owl-100.png") no-repeat;
+  margin-bottom: 20px;
 }
 
 header h1 {
-  margin-left: 120px;
+  margin-left: 140px;
+}
+
+header h1 a:link, header h1 a:visited {
   color: #593501
 }
 
@@ -49,16 +53,38 @@ a:hover, a:active {
   color: #ffcc00;
 }
 
-main {
+
+.question {
+  float: left;
+  width: 100%;
+  margin-top: 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.question h3 {
+  float: left;
+  width: 50%;
+  margin-left: 20%;
+  margin-right: 25%;
 }
 
 .votes-partial {
-  float: left;
-  width: 25%;
-  padding-top: 25px;
+  width: 15%;
+  min-width: 80px;
+  height: 1rem;
 }
+
+.question-title {
+  float: left;
+}
+.answer-count {
+  float: left;
+  margin-left: 20%;
+}
+
 .question-author {
   float: right;
+  width: 25%;
 }
 
 
