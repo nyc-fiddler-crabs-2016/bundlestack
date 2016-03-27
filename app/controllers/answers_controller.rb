@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = current_user.answers.new(answer_params)
+    @answer = current_user.answers.new(answer_params.merge(question_id: params[:question_id]))
     @question = Question.find(params[:question_id])
     if @answer.save
       flash[:success] = "Your answer has been posted"

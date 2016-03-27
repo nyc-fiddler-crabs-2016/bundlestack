@@ -11,11 +11,11 @@
 <% if @question.comments.any? %>
   <div class="comments">
     Comments:
-    <%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
+    <%=render partial: "comments/comment", locals: {comments: @question.comments}%>
   </div>
 <% end %>
 
-<%= render "/answers/form" %>
+<%= render "answers/form" %>
 
 <section id="answers">
   Answers:
