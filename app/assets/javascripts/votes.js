@@ -8,3 +8,9 @@
 
 
 // });
+
+
+//   $("#question-list").on("click",".vote-link" ,function(){
+
+
+//   }).done(function(response){ });
