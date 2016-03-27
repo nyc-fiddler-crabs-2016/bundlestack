@@ -18,5 +18,10 @@ class Question < ActiveRecord::Base
   def answer_count
     self.answers.count
   end
+
+  def has_favorite?
+    self.answers.pluck(:favorite).include?(true)
+  end
+
 end
 

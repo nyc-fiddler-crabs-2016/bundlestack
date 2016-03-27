@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :comments, except: [:show,:index]
   end
 
-
+  get 'answers/flag_favorite' => 'answers#flag_favorite', as: 'flag_favorite'
   resources :answers, except: [:index, :show] do
     resources :comments
   end

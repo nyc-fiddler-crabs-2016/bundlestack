@@ -1,5 +1,16 @@
 class AnswersController < ApplicationController
 
+  def flag_favorite
+    @answer = Answer.find(params[:answer_id])
+    @question = Question.find(@answer.question_id)
+    # if the question is owned by the current_user update the value to true unless one already is true
+    if @question.user_id == current_user.id
+      @answer.update_attributes(favorite: true) unless @question.has_favorite?
+    end
+
+    redirect_to :back
+  end
+
   def new
     @answer = Answer.new
     @question = Question.find(params[:question_id])
@@ -45,6 +56,7 @@ class AnswersController < ApplicationController
 
     redirect_to question_path(question)
   end
+
 
   private
 

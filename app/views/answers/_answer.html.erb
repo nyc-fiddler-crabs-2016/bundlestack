@@ -1,8 +1,19 @@
   <div>
+
+    <% if current_user.id == answer.question_owner_id %>
+      <%= render partial: 'favorite', locals: {answer: answer} %>
+    <% end %>
+
+    <% if answer.favorite %>
+      <h3>FAVORITED ANSWER</h3>
+    <% end %>
+
     <%= answer.content %>
+
     <% if current_user == answer.user %>
       <%= link_to 'delete',  question_answer_path, method: :delete %>
     <% end %>
+
     <%= render partial: 'vote', locals: {object: answer} %>
   </div>
 
