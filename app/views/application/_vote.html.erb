@@ -1,6 +1,6 @@
 <div class="votes-partial">
   <h5>
-    <%= link_to "▲", up_vote_path(votable_id: object.id, votable_type: object.class), {id: build_custom_id(object, "up")} %>
+    <%= link_to "▲", up_vote_path(votable_id: object.id, votable_type: object.class), {id: build_custom_id(object, "up"), class: "upvote"} %>
     <% if object.votes.any? %>
       | <%= object.total_votes%>
     <% end %>
