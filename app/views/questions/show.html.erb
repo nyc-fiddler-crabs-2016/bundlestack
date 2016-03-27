@@ -4,7 +4,12 @@
     <li class="question-show-q"><%= @question.title %></li>
   <%= render partial: 'vote', locals: {object: @question} %>
     <%= @question.content %>
-    <li><%= link_to "edit question", edit_question_path(@question) %></li>
+    <div id="ownership">
+      <% if owned?(@question) %>
+       <%= link_to "edit question", edit_question_path(@question) %>
+       <%= link_to "delete question", question_path(@question), method: :delete %>
+     <% end %>
+    </div>  
   </div>
 
   <div class="add-comment-link">
