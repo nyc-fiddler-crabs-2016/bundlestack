@@ -1,6 +1,6 @@
   <div>
 
-    <% if current_user.id == answer.question_owner_id %>
+    <% if logged_in? && current_user.id == answer.question_owner_id %>
       <%= render partial: 'favorite', locals: {answer: answer} %>
     <% end %>
 

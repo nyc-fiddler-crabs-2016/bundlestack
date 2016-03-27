@@ -1,0 +1,7 @@
+<div class = "question">
+
+  <h3 class="question-title"><%= link_to question.title, question_path(question) %></h3>
+  <span class="vote-count"><%= render partial: 'vote', locals: {object: question} %></span>
+  <span class="answer-count"><%= question.answer_count %> answers</span>
+
+</div>
