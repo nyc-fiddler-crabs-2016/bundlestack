@@ -1,4 +1,4 @@
-  <div>
+  <div class="answer">
 
     <% if logged_in? && current_user.id == answer.question_owner_id %>
       <%= render partial: 'favorite', locals: {answer: answer} %>
@@ -15,11 +15,11 @@
     <% end %>
 
     <%= render partial: 'vote', locals: {object: answer} %>
+
+    by <%= answer.user.username %>
+
   </div>
 
-  <div>
-    by <%= answer.user.username %>
-  <div>
 
   <div>
     <%= render partial: 'comments/form', locals: {resource: answer, comment: Comment.new} %>
