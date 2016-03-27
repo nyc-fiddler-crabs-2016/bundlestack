@@ -11,7 +11,7 @@
     <%= answer.content %>
 
     <% if owned?(answer) %>
-      <%= link_to 'delete',  question_answer_path, method: :delete %>
+      <%= link_to 'delete',  question_answer_path(answer.question, answer), method: :delete %>
     <% end %>
 
     <%= render partial: 'vote', locals: {object: answer} %>

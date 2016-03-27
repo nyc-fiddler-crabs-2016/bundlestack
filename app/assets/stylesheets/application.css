@@ -52,16 +52,6 @@ a:hover, a:active {
 main {
 }
 
-.question-area {
-  border-bottom: 1px solid #ccc;
-}
-
-.question h3 {
-  display: block;
-  margin-left: 50%;
-  margin-right: 50%;
-}
-
 .votes-partial {
   float: left;
   width: 25%;

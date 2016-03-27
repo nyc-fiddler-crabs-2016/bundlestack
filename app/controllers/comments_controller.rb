@@ -1,16 +1,10 @@
-class CommentsController < ActionController::Base
+class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
   end
 
   def create
-    resource = if params[:question_id]
-      Question.find(params[:question_id])
-    else
-     find(params[:answer_id])
-    end
-
     comment = resource.comments.build(comment_params.merge(user: current_user))
 
     if comment.save
@@ -21,7 +15,18 @@ class CommentsController < ActionController::Base
       redirect_to redirect_url_after_create resource
     end
   end
+
   private
+
+  def resource
+    @resource ||= if params[:question_id]
+      Question.find(params[:question_id])
+    else
+     Answer.find(params[:answer_id])
+    end
+  end
+
+  helper_method :resource
 
     def comment_params
       params.require(:comment).permit(:content)

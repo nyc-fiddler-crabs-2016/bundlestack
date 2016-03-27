@@ -1,8 +1,4 @@
-<div>
-  <h4>
-      <%= link_to "Recent Questions", recent_questions_path %>
-  </h4>
-
+<div class="add-question">
   <% if logged_in? %>
     <%= link_to "Add a Question", new_question_path %>
   <% else %>
