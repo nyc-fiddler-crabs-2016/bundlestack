@@ -3,7 +3,7 @@
       <div class="comment">
         <li><%= comment.content %></li>
         <li><%= render partial: 'vote', locals: {object: comment} %></li>
-        <li>by <%= comment.user.username %></li>
+        <li>by <%= link_to comment.user.username, user_path(comment.user) %></li>
      </div>
     <%end%>
   </div>
