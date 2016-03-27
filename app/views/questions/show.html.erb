@@ -1,6 +1,7 @@
 <h2>question</h2>
 <li><%= @question.title %></li>
 <li><%= @question.content %></li>
+<%= link_to "edit question", edit_question_path(@question) %>
 <%= render partial: 'vote', locals: {object: @question} %>
 
 <div class="add-comment-link">
@@ -14,7 +15,7 @@
   </div>
 <% end %>
 
-<%= render partial: "answers/form", locals: {answer: @answer, question: @question} %>
+<%= render "/answers/form" %>
 
 <section id="answers">
   Answers:

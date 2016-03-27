@@ -10,7 +10,7 @@
 
     <%= answer.content %>
 
-    <% if current_user == answer.user %>
+    <% if owned?(answer) %>
       <%= link_to 'delete',  question_answer_path, method: :delete %>
     <% end %>
 
