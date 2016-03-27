@@ -87,6 +87,51 @@ a:hover, a:active {
   width: 25%;
 }
 
+.question-show {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.question-show-q {
+  font-size: 1.65em;
+}
+
+.question-show-content {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid lightgray;
+}
+
+
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+  width:75%;
+}
+
+.comments {
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+  margin-left: 30px;
+}
+
+#answers {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.answer {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -1,9 +1,9 @@
 <div class= "comments-list">
     <%comments.each do |comment|%>
       <div class="comment">
-        <p><%= comment.content %></p>
-        <p>by <%= comment.user.username %></p>
-        <%= render partial: 'vote', locals: {object: comment} %>
+        <li><%= comment.content %></li>
+        <li><%= render partial: 'vote', locals: {object: comment} %></li>
+        <li>by <%= comment.user.username %></li>
      </div>
     <%end%>
   </div>
