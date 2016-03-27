@@ -1,2 +1,17 @@
 _answer.html.erb line 4 if question_answer_path doesnt work - ahrdcode the long way - "/questions/#{answer.question.id}/answers/#{answer.id}"
 
+# preliminary approach to be able to edit/edlete comments.
+
+This is not at all straightforward because there is one comments partial for all comments.
+
+but eiditing or deleting comments for questioons and answers have different paths
+
+<% if owned?(comment)%>
+			<% if comment.commentable_type == "Answer" %>
+		      <%= link_to 'edit comment',  edit_comment_answer_path(answer, comment) %>
+		      <%= link_to 'delete comment',  comment_answer_path(answer, comment), method: :delete %>
+		    <% else %>
+			    <%= link_to 'edit comment',  edit_comment_question_path(question, comment) %>
+			    <%= link_to 'delete comment',  comment_question_path(question, comment), method: :delete %>
+			<% end %>
+        <% end %>
