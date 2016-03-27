@@ -3,7 +3,7 @@
   <div class="question-show">
     <li class="question-show-q"><%= @question.title %></li>
   <%= render partial: 'vote', locals: {object: @question} %>
-    <li class="question-show-content"><%= @question.content %></li>
+    <%= @question.content %>
     <li><%= link_to "edit question", edit_question_path(@question) %></li>
   </div>
 
