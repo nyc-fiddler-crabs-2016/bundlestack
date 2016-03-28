@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   helper_method :authorize_access
   helper_method :prevent_tampering
   helper_method :build_custom_id
+  helper_method :comment_source_path
+
 
   def logged_in?
     !!current_user
@@ -35,5 +37,12 @@ class ApplicationController < ActionController::Base
 
   def build_custom_id(object, direction)
     id = "#{object.class}-" + "#{object.id}-" + direction + "vote-link"
+  end
+  def comment_source_path(comment)
+    if comment.commentable_type == "Answer"
+      question_path(comment.source.question)
+    else
+      question_path(comment.source)
+    end
   end
 end
