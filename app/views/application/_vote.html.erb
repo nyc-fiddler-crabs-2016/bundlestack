@@ -1,20 +1,24 @@
-<div class="votes-partial">
-  <h5>
+<div class="votes-partial" id=<%="vote-#{object.class}-#{object.id}"%> >
+    <p>
     <% if logged_in? %>
       <%= link_to "▲", up_vote_path(votable_id: object.id, votable_type: object.class), {id: build_custom_id(object, "up"), class: "upvote"} %>
     <% else %>
       <%= "▲" %>
     <% end %>
+    </p>
 
-    <% if object.votes.any? %>
-      <%= "| #{object.total_votes} |"%>
-    <% else %>
-      <%= "| 0 |" %>
-    <% end %>
 
-    <% if logged_in? %>
-      <%= link_to "▼", down_vote_path(votable_id: object.id, votable_type: object.class), {id: build_custom_id(object, "down")} %></h5>
+
+    <p><% if object.votes.any? %>
+        <%= "| #{object.total_votes} |"%>
+      <% else %>
+        <%= "| 0 |" %>
+      <% end %></p>
+
+
+    <p><% if logged_in? %>
+      <%= link_to "▼", down_vote_path(votable_id: object.id, votable_type: object.class), {id: build_custom_id(object, "down"), class: "downvote"} %></h5>
     <% else %>
       <%= "▼" %>
-    <% end %>
+    <% end %></p>
 </div>
