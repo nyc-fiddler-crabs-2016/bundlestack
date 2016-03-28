@@ -16,6 +16,32 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    authorize_access(@comment)
+    resource
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    authorize_access(@comment)
+    if @comment.update(comment_params)
+       flash[:success] = "Comment Updated."
+       redirect_to comment_source_path(@comment)
+     else
+       flash[:error] = "Something went wrong. please try again."
+       render 'edit'
+     end
+   end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    authorize_access(comment)
+    comment.destroy
+    flash[:success] = "Comment Removed."
+    redirect_to :back
+  end
+
   private
 
   def resource

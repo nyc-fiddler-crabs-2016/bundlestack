@@ -18,7 +18,8 @@
 
     <%= render partial: 'vote', locals: {object: answer} %>
 
-    by <%= answer.user.username %>
+    by <%= link_to answer.user.username, user_path(answer.user) %>
+
 
   </div>
 
