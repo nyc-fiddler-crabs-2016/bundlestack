@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'answers/flag_favorite' => 'answers#flag_favorite', as: 'flag_favorite'
   resources :answers, except: [:index, :show] do
-    resources :comments
+    resources :comments, except: [:show,:index]
   end
 
   get 'votes/up/:votable_id/:votable_type' => 'votes#up', as:'up_vote'

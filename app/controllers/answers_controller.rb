@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+ class AnswersController < ApplicationController
 
   def flag_favorite
     @answer = Answer.find(params[:answer_id])

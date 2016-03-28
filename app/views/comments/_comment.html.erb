@@ -3,10 +3,10 @@
       <div class="comment">
         <li><%= comment.content %></li>
         <% if owned?(comment)%>
-			<% if comment.commentable_type == "answer" %>
-		      this is a <%= comment.commentable_type %> comment.
+			<% if comment.commentable_type == "Answer" %>
+		      this is a <%= comment.commentable_type %> comment
 		    <% else %>
-		    	this is a <%= comment.commentable_type %> comment.
+		    bogus
 			<% end %>
         <% end %>
         <li><%= render partial: 'vote', locals: {object: comment} %></li>
