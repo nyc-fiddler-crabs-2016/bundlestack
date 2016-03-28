@@ -15,3 +15,9 @@ but eiditing or deleting comments for questioons and answers have different path
 			    <%= link_to 'delete comment',  comment_question_path(question, comment), method: :delete %>
 			<% end %>
         <% end %>
+
+
+useful for testing in pry
+a = Comment.pluck(:commentable_id)
+b = Comment.pluck(:commentable_type)
+a.zip(b)	

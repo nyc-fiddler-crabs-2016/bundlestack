@@ -11,3 +11,4 @@ has_many   :votes, as: :votable, dependent: :destroy
     self.user.username
   end
 end
+

@@ -16,6 +16,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  # def edit
+  # end
+
+  # def update
+  # end
+
+  # def destroy
+  # end
+
   private
 
   def resource
@@ -23,6 +32,14 @@ class CommentsController < ApplicationController
       Question.find(params[:question_id])
     else
      Answer.find(params[:answer_id])
+    end
+  end
+
+  def source
+    if self.commentable_type == "Answer"
+      @answer = Answer.find(self.commentable_id)
+    else
+      @question = Question.find(self.commentable_id)
     end
   end
 
