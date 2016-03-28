@@ -4,9 +4,11 @@
         <li><%= comment.content %></li>
         <% if owned?(comment)%>
 			<% if comment.commentable_type == "Answer" %>
-		      this is a <%= comment.commentable_type %> comment
+				<%= link_to 'edit comment',  edit_answer_comment_path(comment.source, comment) %>
+       			<%= link_to 'delete comment',  answer_comment_path(comment.source, comment), method: :delete %>
 		    <% else %>
-		    bogus
+		    	<%= link_to 'edit comment',  edit_question_comment_path(comment.source, comment) %>
+        		<%= link_to 'delete comment',  question_comment_path(comment.source, comment), method: :delete %>
 			<% end %>
         <% end %>
         <li><%= render partial: 'vote', locals: {object: comment} %></li>

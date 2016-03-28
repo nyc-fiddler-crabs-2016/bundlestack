@@ -20,4 +20,7 @@ but eiditing or deleting comments for questioons and answers have different path
 useful for testing in pry
 a = Comment.pluck(:commentable_id)
 b = Comment.pluck(:commentable_type)
-a.zip(b)	
+c = Comment.pluck(:id)
+
+d = a.zip(b)	
+e = c.zip(d)
