@@ -4,8 +4,13 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:answer_id])
     @question = Question.find(@answer.question_id)
     # if the question is owned by the current_user update the value to true unless one already is true
+
+    if @question.has_favorite?
+      @question.answers.find_by(favorite: true).update_attributes(favorite: false)
+    end
+
     if @question.user_id == current_user.id
-      @answer.update_attributes(favorite: true) unless @question.has_favorite?
+      @answer.update_attributes(favorite: true)
     end
 
     redirect_to :back
