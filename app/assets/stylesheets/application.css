@@ -1,3 +1,142 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.votes-partial p{
+  display: inline;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  height: 100px;
+  background: url("/assets/owl-100.png") no-repeat;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin-left: 140px;
+}
+
+header h1 a:link, header h1 a:visited {
+  color: #593501
+}
+
+nav {
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+a:link {
+  color: #6bc2ef;
+}
+a:visited {
+ color: #63ba47;
+}
+a:hover, a:active {
+  color: #ffcc00;
+}
+
+
+.question {
+  float: left;
+  width: 100%;
+  margin-top: 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.question h3 {
+  float: left;
+  width: 50%;
+  margin-left: 20%;
+  margin-right: 25%;
+}
+
+.votes-partial {
+  width: 15%;
+  min-width: 80px;
+  height: 1rem;
+}
+
+.question-title {
+  float: left;
+}
+.answer-count {
+  float: left;
+  margin-left: 20%;
+}
+
+.question-author {
+  float: right;
+  width: 25%;
+}
+
+.question-show {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.question-show-q {
+  font-size: 1.65em;
+}
+
+.question-show-content {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid lightgray;
+}
+
+
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+  width:75%;
+}
+
+.comments {
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+  margin-left: 30px;
+}
+
+#answers {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.answer {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,6 +149,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */

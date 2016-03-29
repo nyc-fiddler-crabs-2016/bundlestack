@@ -1,0 +1,10 @@
+_answer.html.erb line 4 if question_answer_path doesnt work - ahrdcode the long way - "/questions/#{answer.question.id}/answers/#{answer.id}"
+
+
+        useful for testing in pry
++a = Comment.pluck(:commentable_id)
++b = Comment.pluck(:commentable_type)
++c = Comment.pluck(:id)
++
++d = a.zip(b)	
++e = c.zip(d) 

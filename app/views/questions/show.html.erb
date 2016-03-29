@@ -1,0 +1,39 @@
+<div class="main-content">
+
+  <div class="question-show">
+    <li class="question-show-q"><%= @question.title %></li>
+      <%= render partial: 'vote', locals: {object: @question} %>
+
+    <%= @question.content %>
+    <div id="ownership">
+      <% if owned?(@question) %>
+       <%= link_to "edit question", edit_question_path(@question) %>
+       <%= link_to "delete question", question_path(@question), method: :delete %>
+     <% end %>
+    </div>
+  </div>
+
+  <% if logged_in? %>
+    <div class="add-comment-link">
+      <%= link_to 'Add Comment', new_question_comment_path(@question) %>
+    </div>
+  <% end %>
+
+  <br>
+  <% if @question.comments.any? %>
+    <h2>Question Comments</h2>
+    <div class="comments">
+      <%=render partial: "comments/comment", locals: {comments: @question.comments}%>
+    </div>
+  <% end %>
+
+  <% if logged_in? %>
+    <%= link_to 'Add Answer', new_question_answer_path(@question) %>
+  <% end %>
+  <!-- <render "answers/form" %> -->
+  <section id="answers">
+    <h2>Answers</h2>
+    <%= render @answers %>
+  </section>
+
+</div>

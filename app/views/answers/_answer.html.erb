@@ -1,0 +1,37 @@
+  <div class="answer">
+
+    <% if logged_in? && current_user.id == answer.question_owner_id %>
+      <%= render partial: 'favorite', locals: {answer: answer} %>
+    <% end %>
+
+    <% if answer.favorite %>
+      <h3 style="color: red">FAVORITED ANSWER</h3>
+    <% end %>
+
+    <%= answer.content %>
+
+    <% if owned?(answer) %>
+        <%= link_to 'edit answer',  edit_question_answer_path(answer.question, answer) %>
+        <%= link_to 'delete answer',  question_answer_path(answer.question, answer), method: :delete %>
+    <% end %>
+
+
+    <%= render partial: 'vote', locals: {object: answer} %>
+
+    by <%= link_to answer.user.username, user_path(answer.user) %>
+
+
+  </div>
+
+
+  <div>
+    <% if logged_in? %>
+      <%= render partial: 'comments/form', locals: {resource: answer, comment: Comment.new} %>
+    <% end %>
+  </div>
+
+
+  <div>
+    <h2>Answer comment</h2>
+    <%=render partial: "comments/comment", locals: {comments: answer.comments}%>
+  </div>

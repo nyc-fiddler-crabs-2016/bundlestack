@@ -1,0 +1,12 @@
+<div class="add-question">
+  <% if logged_in? %>
+    <%= link_to "Add a Question", new_question_path %>
+  <% else %>
+    <h3>Sign up to add a question</h3>
+  <% end %>
+<div>
+
+<div id="question-list">
+  <%= render @questions %>
+<div>
+
